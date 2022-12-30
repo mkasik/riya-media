@@ -49,7 +49,7 @@ const Post = () => {
 
 
         }
-        fetch('http://localhost:5000/post-data', {
+        fetch('https://riya-media-server.vercel.app/post-data', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

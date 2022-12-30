@@ -6,7 +6,7 @@ const Media = () => {
 
     const [medias, setMedias] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/post-data')
+        fetch('https://riya-media-server.vercel.app/post-data')
             .then(res => res.json())
             .then(data => setMedias(data))
     }, [])
