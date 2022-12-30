@@ -1,0 +1,55 @@
+.side-height {
+    height: 650px;
+}
+
+.mm {
+    margin-top: 100px;
+}
+
+.round {
+    border-radius: 30px;
+    height: 50px;
+
+}
+
+.post-img {
+    border-radius: 30px;
+    height: 40px;
+
+}
+
+.status-img {
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 20px;
+
+
+
+
+
+}
+
+.status-height {
+    /* height: 500px; */
+}
+
+.user-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+}
+
+.side-img {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.nn {
+    margin-left: 150px;
+}
+
+.ee {
+    margin-left: 80px;
+}
