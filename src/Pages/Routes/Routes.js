@@ -1,3 +1,4 @@
+import About from "../About/About";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Media from "../Media/Media";
@@ -28,6 +29,10 @@ export const routes = createBrowserRouter([
     {
         path: '/login',
         element: <Login></Login>
+    },
+    {
+        path: '/about',
+        element: <About></About>
     },
 
 ])

@@ -1,0 +1,29 @@
+login-bg {
+    background: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm222batch4-mind-18_1_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=4b381f9ab3d486d660b6d92333b508e2);
+    background-size: cover;
+}
+
+.bg-log {
+    background-color: blue;
+    height: 450px;
+    margin-top: 48px;
+}
+
+.bg-ll {
+    background-color: rgb(247, 246, 248);
+    height: 450px;
+}
+
+.gg {
+    position: relative;
+}
+
+.hh {
+    position: absolute;
+    margin-top: 180px;
+}
+
+.bg-left {
+    background: linear-gradient(to bottom, #ffffff 0%, #0000ff 100%);
+    ;
+}

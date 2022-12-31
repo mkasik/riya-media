@@ -6,7 +6,7 @@ const Status = (media) => {
     // console.log(media.media.userName)
     const { user } = useContext(AuthContext);
     return (
-        <div className='bg-base-300 status-height mt-1 '>
+        <div className='bg-status status-height mt-1 '>
 
             <div class="grid  grid-cols-6 gap-4">
 
@@ -22,10 +22,9 @@ const Status = (media) => {
 
 
             </div>
-            <div class="  ">
-                <img className='status-img mt-1 ' alt='' src={media?.media?.statusPhoto}></img>
 
-                {/* <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure> */}
+            <div class="  ">
+                {media?.media?.statusPhoto ? <img className='status-img mt-1 ' alt='' src={media?.media?.statusPhoto}></img> : <></>}
 
             </div>
             <div class="grid grid-cols-4 gap-4 ml-48 mt-6 pb-6">

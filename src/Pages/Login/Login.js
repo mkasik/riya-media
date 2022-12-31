@@ -3,6 +3,9 @@ import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import img from './one.png';
+import img2 from './log.png';
+
+import './Login.css';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -46,16 +49,19 @@ const Login = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div>
-            <h2 className='text-xl mt-4'>Please Login</h2>
+        <div className='login-bg'>
+
 
 
             <div className="flex w-full">
-                <div className="grid  flex-grow card  rounded-box place-items-center">
-                    <img alt='' src={img}></img>
+                <div className="grid bg-log gg flex-grow  place-items-center">
+
+                    <img alt='' src={img2}></img>
+                    <h2 className='text-white hh text-2xl'>Please Login here</h2>
+
                 </div>
 
-                <div className="grid  flex-grow card  mt-12 mr-24 rounded-box place-items-center">
+                <div className="grid  flex-grow   mt-12 mr-24  bg-ll place-items-center">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl ">
                         <form onSubmit={handleSubmit}>
                             <div className="card-body">

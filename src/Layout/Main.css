@@ -1,5 +1,5 @@
 .side-height {
-    height: 650px;
+    height: 600px;
 }
 
 .mm {
@@ -27,6 +27,10 @@
 
 
 
+}
+
+.bg-status {
+    background-color: white;
 }
 
 .status-height {

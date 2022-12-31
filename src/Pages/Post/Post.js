@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
@@ -14,38 +14,57 @@ const Post = () => {
         const userPost = form.post.value;
         const postPhoto = form.img.files[0];
         console.log(userPost, user.photoURL, user.displayName);
+        const date = new Date();
+        if (postPhoto) {
+            console.log('yes')
+            let data = new FormData();
 
 
-        let data = new FormData();
-
-        data.append('image', postPhoto);
-        const url = 'https://api.imgbb.com/1/upload?expiration=600&key=99234a10f0aa156878f5c836ecba340c'
-        fetch(url, {
-            method: 'POST',
-            body: data
-        })
-            .then(res => res.json())
-            .then(imgData => {
-                console.log(imgData.data.url);
-                const statusPhoto = imgData.data.url;
-                dataPost(userPost, statusPhoto, user.photoURL, user.displayName
-                )
-                console.log(userPost, statusPhoto, user.photoURL, user.displayName)
-
+            data.append('image', postPhoto);
+            const url = 'https://api.imgbb.com/1/upload?expiration=600&key=99234a10f0aa156878f5c836ecba340c'
+            fetch(url, {
+                method: 'POST',
+                body: data
             })
+                .then(res => res.json())
+                .then(imgData => {
+                    console.log(imgData.data.url);
+                    const statusPhoto = imgData.data.url;
+                    getData(statusPhoto)
+                    console.log(userPost, statusPhoto, user.photoURL, user.displayName)
+
+                })
+
+            const getData = statusURL => {
+
+                dataPost(userPost, statusURL, user.photoURL, user.displayName, date
+                )
+
+
+
+            };
+
+        }
+        else {
+            console.log('no')
+            dataPost(userPost, '', user.photoURL, user.displayName, date
+            )
+        }
+
+
 
 
 
         form.reset();
     }
-
-    const dataPost = (userPost, statusPhoto, userPhoto, userName) => {
+    const dataPost = (userPost, statusPhoto, userPhoto, userName, date) => {
         const status = {
 
             userPost,
             statusPhoto,
             userPhoto,
-            userName
+            userName,
+            date
 
 
         }
@@ -69,6 +88,7 @@ const Post = () => {
             })
 
     }
+
     return (
         <div className='bg-base-300 h-32 '>
 

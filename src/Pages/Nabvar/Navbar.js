@@ -12,7 +12,7 @@ const Navbar = () => {
     }
     return (
         <div className='sticky top-0 z-50'>
-            <div className="navbar sticky top-0 z-50  bg-neutral text-neutral-content ">
+            <div className="navbar sticky top-0 z-50  bg-black text-neutral-content ">
                 <div className="navbar-start ">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,10 +37,10 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1">
-                        <Link to={'/'}><button className="btn">Home</button></Link>
-                        <Link to={'/media'}><button className="btn">Media</button></Link>
-                        <Link to={'/'}><button className="btn">Message</button></Link>
-                        <Link to={'/'}><button className="btn">About</button></Link>
+                        <Link to={'/'}><button className="btn bg-black">Home</button></Link>
+                        <Link to={'/media'}><button className="btn bg-black">Media</button></Link>
+                        <Link to={'/'}><button className="btn bg-black">Message</button></Link>
+                        <Link to={'/about'}><button className="btn bg-black">About</button></Link>
 
                     </ul>
                 </div>
@@ -67,14 +67,14 @@ const Navbar = () => {
                         user?.uid ? <>
                             <img title={user?.displayName} src={user?.photoURL}
                                 height='30'
-                                className='rounded user-img'
+                                className='rounded user-img mr-4'
                                 alt='User images'></img>
-                            <button onClick={handleLogOut} className='btn '>Log Out</button>
+                            <button onClick={handleLogOut} className='btn bg-black'>Log Out</button>
                         </>
                             :
                             <>
-                                <Link to={'/register'}><button className="btn">Register</button></Link>
-                                <Link to={'/login'}><button className="btn">Login</button></Link>
+                                <Link to={'/register'}><button className="btn bg-black">Register</button></Link>
+                                <Link to={'/login'}><button className="btn bg-black">Login</button></Link>
                             </>
                     }
                 </div>
