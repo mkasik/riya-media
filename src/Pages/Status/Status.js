@@ -1,10 +1,51 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import Comment from '../Comment/Comment';
 
 const Status = (media) => {
     // console.log(media.media.userName)
     const { user } = useContext(AuthContext);
+    const handleComment = event => {
+
+        event.preventDefault();
+        const form = event.target;
+        const postId = media?.media?._id;
+        const userPhoto = user?.photoURL;
+        const userComment = form.comment.value;
+        saveComment(userComment, postId, userPhoto)
+
+        form.reset();
+    }
+    const saveComment = (comment, postId, userPhoto) => {
+        const status = {
+
+            comment,
+            postId,
+            userPhoto
+
+
+        }
+        fetch('https://riya-media-server-mkasik.vercel.app/comment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+
+                    alert('Success')
+
+
+
+                }
+            })
+
+    }
+
     return (
         <div className='bg-status status-height mt-1 '>
 
@@ -52,7 +93,7 @@ const Status = (media) => {
                 </div>
             </div>
             <div className="divider"></div>
-            <Comment></Comment>
+            <Comment id={media?.media?._id} ></Comment>
 
             <div className='bg-base-300 h-28 '>
 
@@ -60,12 +101,14 @@ const Status = (media) => {
                     <div class=" mt-6 ml-24 flex-none  w-14 h-14 ...">
                         <img className='round' alt='' src={user?.photoURL}></img>
                     </div>
+
                     <div class="grow mt-6 h-14 w-100">
-
-                        <input type="text" placeholder="Comment here" className="input input-bordered h-12 w-2/3 " />
-                        <button className='btn ml-2 '>Comment</button>
-
+                        <form onSubmit={handleComment}>
+                            <input type="text" placeholder="Comment here" className="input input-bordered h-12 w-2/3 " name='comment' />
+                            <button className='btn ml-2 '>Comment</button>
+                        </form>
                     </div>
+
 
 
                 </div>
